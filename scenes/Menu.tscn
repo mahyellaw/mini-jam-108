@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://misc/Oxanium-Light.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://textures/BG.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=3]
+[ext_resource path="res://textures/icon-S.png" type="Texture" id=4]
+[ext_resource path="res://audio/531015__noted451__ocean-waves.wav" type="AudioStream" id=5]
+[ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.14902, 0.239216, 0.431373, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 0.960784, 0.85098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 0.960784, 0.85098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.14902, 0.239216, 0.431373, 1 )
+
+[node name="Menu" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="logo" type="Sprite" parent="."]
+position = Vector2( 96, 32 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -19.0
+margin_top = -44.0
+margin_right = 19.0
+margin_bottom = -24.0
+custom_colors/font_color = Color( 0.960784, 0.839216, 0.537255, 1 )
+custom_colors/font_color_hover = Color( 1, 0.960784, 0.85098, 1 )
+custom_colors/font_color_pressed = Color( 0.921569, 0.635294, 0.329412, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "Play"
+
+[node name="ocean" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 5.0
+autoplay = true
+
+[node name="Tutorial" parent="." instance=ExtResource( 6 )]
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
