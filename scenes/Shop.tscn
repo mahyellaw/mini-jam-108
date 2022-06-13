@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Shop.gd" type="Script" id=1]
 [ext_resource path="res://textures/buildings/refreshments.png" type="Texture" id=2]
+[ext_resource path="res://textures/ui/remove.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Counter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/entities/Purchased.png" type="Texture" id=5]
+[ext_resource path="res://textures/entities/Built.png" type="Texture" id=6]
+[ext_resource path="res://audio/purchased.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 12 )
+extents = Vector2( 6, 10 )
 
-[node name="Shop" type="Sprite"]
+[node name="Shop" type="Sprite" groups=["shop"]]
 position = Vector2( 0, 16 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -16 )
 script = ExtResource( 1 )
+counter_particles = [ ExtResource( 6 ), ExtResource( 5 ) ]
 
 [node name="Hitbox" type="Area2D" parent="."]
 
@@ -18,4 +24,20 @@ script = ExtResource( 1 )
 position = Vector2( 0, -12 )
 shape = SubResource( 1 )
 
+[node name="Remove" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 0, -16 )
+texture = ExtResource( 3 )
+
+[node name="Counter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, -16 )
+
+[node name="purchased" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -2.5
+bus = "Sound Effects"
+
 [connection signal="input_event" from="Hitbox" to="." method="_on_Hitbox_input_event"]
+[connection signal="mouse_entered" from="Hitbox" to="." method="_on_Hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Hitbox" to="." method="_on_Hitbox_mouse_exited"]
