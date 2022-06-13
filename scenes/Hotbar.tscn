@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://textures/ui/Selector.png" type="Texture" id=1]
+[ext_resource path="res://textures/ui/IceCream-icon.png" type="Texture" id=2]
+[ext_resource path="res://textures/ui/Hotdogs-icon.png" type="Texture" id=3]
+[ext_resource path="res://textures/ui/Refreshments-icon.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Hotbar.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Hitbox.tscn" type="PackedScene" id=6]
+
+[node name="Hotbar" type="Node"]
+script = ExtResource( 5 )
+
+[node name="Refreshments" type="Sprite" parent="."]
+position = Vector2( 12, 38 )
+texture = ExtResource( 4 )
+
+[node name="Ref-HB" parent="Refreshments" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Hotdogs" type="Sprite" parent="."]
+position = Vector2( 12, 54 )
+texture = ExtResource( 3 )
+
+[node name="Hot-HB" parent="Hotdogs" instance=ExtResource( 6 )]
+visible = false
+
+[node name="IceCream" type="Sprite" parent="."]
+position = Vector2( 12, 70 )
+texture = ExtResource( 2 )
+
+[node name="Ice-HB" parent="IceCream" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Selector" type="Sprite" parent="."]
+position = Vector2( 12, 38 )
+texture = ExtResource( 1 )
+
+[connection signal="input_event" from="Refreshments/Ref-HB" to="." method="_on_RefHB_input_event"]
+[connection signal="input_event" from="Hotdogs/Hot-HB" to="." method="_on_HotHB_input_event"]
+[connection signal="input_event" from="IceCream/Ice-HB" to="." method="_on_IceHB_input_event"]
+
+[editable path="Refreshments/Ref-HB"]
+[editable path="Hotdogs/Hot-HB"]
+[editable path="IceCream/Ice-HB"]
