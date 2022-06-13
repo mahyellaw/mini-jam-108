@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://def_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://misc/Oxanium-Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Stock.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=5]
+size = 4
+outline_size = 1
+outline_color = Color( 1, 0.960784, 0.85098, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 1
+outline_color = Color( 1, 0.960784, 0.85098, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 6
+outline_size = 1
+outline_color = Color( 0.14902, 0.239216, 0.431373, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "bob"
+length = 0.5
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 93, 18 ), Vector2( 93, 16 ), Vector2( 93, 18 ) ]
+}
+
+[node name="Stock" type="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -44.0
+margin_right = 96.0
+script = ExtResource( 3 )
+
+[node name="Currency" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -24.0
+margin_top = -13.0
+margin_bottom = -4.0
+custom_colors/font_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "$01.0"
+align = 1
+valign = 1
+
+[node name="Revenue" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -84.0
+margin_top = -13.0
+margin_right = -43.0
+margin_bottom = -4.0
+custom_colors/font_color = Color( 0.14902, 0.239216, 0.431373, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Total Revenue: $1.000.0"
+valign = 1
+
+[node name="Stock" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -13.0
+margin_right = 24.0
+margin_bottom = -4.0
+custom_colors/font_color = Color( 0.184314, 0.447059, 0.619608, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "100"
+align = 1
+valign = 1
+
+[node name="Restock" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_top = -26.0
+margin_right = 36.0
+margin_bottom = -13.0
+focus_mode = 0
+custom_colors/font_color = Color( 0.960784, 0.839216, 0.537255, 1 )
+custom_colors/font_color_hover = Color( 1, 0.960784, 0.85098, 1 )
+custom_colors/font_color_pressed = Color( 0.921569, 0.635294, 0.329412, 1 )
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "RESTOCK"
+flat = true
+
+[node name="anim" type="AnimationPlayer" parent="Restock"]
+anims/bob = SubResource( 4 )
+
+[connection signal="pressed" from="Restock" to="." method="_on_Restock_pressed"]
