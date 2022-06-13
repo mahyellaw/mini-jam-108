@@ -1,0 +1,377 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://misc/Oxanium-Light.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://textures/BG.png" type="Texture" id=2]
+[ext_resource path="res://textures/ui/Mouse.png" type="Texture" id=3]
+[ext_resource path="res://textures/buildings/refreshments.png" type="Texture" id=4]
+[ext_resource path="res://textures/buildings/icecream.png" type="Texture" id=5]
+[ext_resource path="res://textures/buildings/hotdogs.png" type="Texture" id=6]
+[ext_resource path="res://textures/entities/People.png" type="Texture" id=7]
+[ext_resource path="res://scripts/Tutorial.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 1
+outline_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_size = 1
+outline_color = Color( 0.14902, 0.239216, 0.431373, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 4
+outline_size = 1
+outline_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 6
+outline_size = 1
+outline_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+outline_size = 1
+outline_color = Color( 0.14902, 0.239216, 0.431373, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 4
+outline_size = 1
+outline_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+outline_size = 1
+outline_color = Color( 1, 0.960784, 0.85098, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Tutorial" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 96, 54 )
+texture = ExtResource( 2 )
+
+[node name="Tutorial" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -43.5
+margin_top = 4.0
+margin_right = 43.5
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.921569, 0.635294, 0.329412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "TUTORIAL"
+align = 1
+valign = 1
+
+[node name="1" type="Node2D" parent="."]
+position = Vector2( 96, 54 )
+
+[node name="Welcome" type="Label" parent="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = 1.0
+margin_right = 96.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.960784, 0.839216, 0.537255, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Welcome, click to continue. :)"
+align = 1
+valign = 1
+
+[node name="2" type="Node2D" parent="."]
+visible = false
+position = Vector2( 101, 48 )
+
+[node name="Controls" type="Label" parent="2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = 1.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.960784, 0.839216, 0.537255, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "  MOUSE Controls:"
+valign = 1
+
+[node name="Mouse" type="Sprite" parent="2"]
+position = Vector2( 32, 11 )
+texture = ExtResource( 3 )
+
+[node name="Controls2" type="Label" parent="2"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -10.0
+margin_right = 21.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0.184314, 0.447059, 0.619608, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Build --"
+valign = 1
+
+[node name="Controls3" type="Label" parent="2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 44.0
+margin_top = -10.0
+margin_right = 81.0
+margin_bottom = 7.0
+custom_colors/font_color = Color( 0.184314, 0.447059, 0.619608, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "-- Destroy"
+valign = 1
+
+[node name="Controls4" type="Label" parent="2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -3.0
+margin_right = 57.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0.184314, 0.447059, 0.619608, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "|
+Hotbar Scroll"
+align = 1
+valign = 1
+
+[node name="3" type="Node2D" parent="."]
+visible = false
+position = Vector2( 96, 54 )
+
+[node name="Instruction" type="Label" parent="3"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -31.0
+margin_right = 96.0
+margin_bottom = -10.0
+custom_colors/font_color = Color( 0.960784, 0.839216, 0.537255, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Shops and customers' colors match.
+Build the right one!"
+align = 1
+valign = 1
+
+[node name="Entity" type="Sprite" parent="3"]
+position = Vector2( -56, 2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 4, 6 )
+
+[node name="Building" type="Sprite" parent="3/Entity"]
+position = Vector2( 0, 12 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Entity2" type="Sprite" parent="3"]
+position = Vector2( 0, 2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 4, 0, 4, 6 )
+
+[node name="Building" type="Sprite" parent="3/Entity2"]
+position = Vector2( 0, 12 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Entity3" type="Sprite" parent="3"]
+position = Vector2( 56, 2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 8, 0, 4, 6 )
+
+[node name="Building" type="Sprite" parent="3/Entity3"]
+position = Vector2( 0, 12 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="4" type="Node2D" parent="."]
+visible = false
+position = Vector2( 96, 54 )
+
+[node name="Instruction" type="Label" parent="4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -31.0
+margin_right = 96.0
+margin_bottom = -10.0
+custom_colors/font_color = Color( 0.921569, 0.635294, 0.329412, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Always monitor your profit and stocks."
+align = 1
+valign = 1
+
+[node name="ded" type="Label" parent="4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = -22.0
+margin_right = 96.0
+margin_bottom = -1.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "you'll die if you do."
+align = 1
+valign = 1
+
+[node name="Instruction4" type="Label" parent="4"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 15.0
+margin_right = 48.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0.184314, 0.447059, 0.619608, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Remember to restock
+once you profit enough."
+align = 1
+valign = 1
+
+[node name="Instruction" type="Label" parent="4/Instruction4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -18.0
+margin_top = -4.0
+margin_right = 18.0
+margin_bottom = 17.0
+custom_colors/font_color = Color( 0.960784, 0.839216, 0.537255, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "RESTOCK"
+align = 1
+valign = 1
+
+[node name="PressMe" type="Label" parent="4/Instruction4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = -4.0
+margin_right = 78.0
+margin_bottom = 17.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "-  press me when I appear, daddy~"
+align = 1
+valign = 1
+
+[node name="Instruction5" type="Label" parent="4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -58.5
+margin_top = -11.0
+margin_right = -31.5
+margin_bottom = 10.0
+custom_colors/font_color = Color( 0.0980392, 0.0980392, 0.188235, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "$01.00"
+align = 1
+valign = 1
+
+[node name="Instruction6" type="Label" parent="4"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 31.5
+margin_top = -11.0
+margin_right = 58.5
+margin_bottom = 10.0
+custom_colors/font_color = Color( 0.184314, 0.447059, 0.619608, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "150"
+align = 1
+valign = 1
+
+[node name="5" type="Node2D" parent="."]
+visible = false
+position = Vector2( 96, 40 )
+
+[node name="Instruction" type="Label" parent="5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -1.5
+margin_right = 96.0
+margin_bottom = 19.5
+custom_colors/font_color = Color( 1, 0.960784, 0.85098, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Your goal?
+Earn a minimum of $1000.0 total revenue 
+by the end of the day."
+align = 1
+valign = 1
+
+[node name="6" type="Node2D" parent="."]
+visible = false
+position = Vector2( 96, 54 )
+
+[node name="Done" type="Label" parent="6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -23.0
+margin_right = 96.0
+margin_bottom = -6.0
+custom_colors/font_color = Color( 0.921569, 0.635294, 0.329412, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "You're all set!"
+align = 1
+valign = 1
+
+[node name="Done2" type="Label" parent="6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = 1.0
+margin_right = 96.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "now go away and play the game."
+align = 1
+valign = 1
