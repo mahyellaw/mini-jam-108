@@ -1,11 +1,6 @@
 extends CPUParticles2D
 
-func _unhandled_input(_event):
-	if Input.is_action_just_pressed("build"):
-		global_position = get_global_mouse_position()
-		color = Color("eba254")
-		restart()
-	if Input.is_action_just_pressed("destroy"):
-		global_position = get_global_mouse_position()
-		color = Color("2f729e")
-		emitting = true
+func emit_particles(input_type, target_position):
+	global_position = target_position - Vector2(0, 12)
+	color_ramp.colors[2] = Color("2f729e") if input_type == "build" else Color("eba254")
+	restart()

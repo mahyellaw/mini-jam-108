@@ -1,22 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Debris.gd" type="Script" id=1]
 
 [sub_resource type="Curve" id=1]
-max_value = 2.0
-_data = [ Vector2( 0, 2 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+max_value = 4.0
+_data = [ Vector2( 0, 4 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="Debris" type="CPUParticles2D"]
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.186667, 0.208889 )
+colors = PoolColorArray( 1, 0.960784, 0.85098, 1, 1, 0.960784, 0.85098, 1, 0.921569, 0.635294, 0.329412, 1 )
+
+[node name="Debris" type="CPUParticles2D" groups=["debris"]]
 emitting = false
 one_shot = true
-preprocess = 1.0
 speed_scale = 2.0
 explosiveness = 1.0
 local_coords = false
-direction = Vector2( 0, 0 )
 spread = 180.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 15.0
+initial_velocity = 25.0
 scale_amount_curve = SubResource( 1 )
-color = Color( 0.921569, 0.635294, 0.329412, 1 )
+color_ramp = SubResource( 2 )
 script = ExtResource( 1 )
