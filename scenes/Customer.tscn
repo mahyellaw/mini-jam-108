@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/Customer.gd" type="Script" id=1]
+[ext_resource path="res://textures/entities/People.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Hitbox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 8, 0, 4, 6 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 4, 6 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 4, 0, 4, 6 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 1, 2 )
+
+[node name="Customer" type="Sprite" groups=["customers"]]
+texture = SubResource( 1 )
+script = ExtResource( 1 )
+customer_types = [ SubResource( 2 ), SubResource( 1 ), SubResource( 3 ) ]
+
+[node name="Hitbox" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 4 )
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+
+[editable path="Hitbox"]
